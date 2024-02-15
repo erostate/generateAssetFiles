@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="https://asset.blms.fr/logo/favicon.png">
+</head>
+<body>
+    <header>
+        <img src="https://asset.blms.fr/logo/logo2_dark.png" alt="BLMS - Logo">
+        <div></div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="header">
+                <h1>Create an asset file</h1>
+                <span>
+                    <p>Select a file type</p>
+                    <select onchange="changeFileType(this)" id="fileType">
+                        <option selected value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">JS</option>
+                    </select>
+                </span>
+            </div>
+            <hr>
+            <div class="content">
+                <span class="column">
+                    <p>Use color template of BLMS ?</p>
+                    <span class="row gap-5">
+                        <button id="btnUseBlmsColorTemplateTrue" onclick="useBlmsColorTemplate(true)" class="btn-checkbox active">Yes</button>
+                        <button id="btnUseBlmsColorTemplateFalse" onclick="useBlmsColorTemplate(false)" class="btn-checkbox">No</button>
+                        <input type="hidden" id="useBlmsColorTemplateStatus" value="true">
+                    </span>
+                </span>
+                <br><br>
+                <span class="column">
+                    <span class="row gap-5">
+                        <h3>Project</h3>
+                        <input type="text" id="projectName" placeholder="Project name">
+                        <p id="domain">.blms.fr</p>
+                    </span>
+                    <span class="row gap-5" style="margin-top: -10px;">
+                        <label for="btnNotForBlmsProject">This project is not for BLMS</label>
+                        <button id="btnNotForBlmsProject" onclick="notForBlmsProject(this)" class="btn-checkbox" value="false">Yes</button>
+                        <input type="hidden" id="notForBlmsProjectStatus" value="false">
+                    </span>
+                </span>
+                <br>
+                <span class="column">
+                    <span class="row gap-5">
+                        <h3>Author</h3>
+                        <input type="text" id="author" placeholder="Author of the project">
+                    </span>
+                    <span class="row gap-5" style="margin-top: -10px;">
+                        <label for="btnNotDevForBlms">I am not a developper for BLMS</label>
+                        <button id="btnNotDevForBlms" onclick="notDevForBlms(this)" class="btn-checkbox" value="false">Yes</button>
+                        <input type="hidden" id="notDevForBlmsStatus" value="false">
+                    </span>
+                </span>
+                <br>
+                <span class="column gap-5">
+                    <h3>Short description</h3>
+                    <textarea id="desc" cols="30" rows="1" placeholder="Description of the project (Global CSS styles)"></textarea>
+                </span>
+            </div>
+            <br><br>
+            <div class="generate">
+                <button onclick="reset();" class="btn btn-danger">Reset all</button>
+                <button onclick="generateFile();" class="btn">Generate file</button>
+            </div>
+            <!-- <p>Does not have an account ? <a href="/register">Register now</a></p> -->
+        </section>
+    </main>
+    
+    <!-- MODAL -->
+    <div class="modal" id="modalGenerationTeam">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modalGenerationTeam')">&times;</span>
+                <h2>Team generation</h2>
+            </div>
+            <div class="modal-error" id="modalError" style="display: none;"></div>
+            <div class="modal-body team-list" id="teamList">
+                <div class="team" id="team1">
+                    <h3>Team 1</h3>
+                    <hr>
+                    <ul id="team1List">
+                        <li>Player 1</li>
+                        <li>Player 2</li>
+                    </ul>
+                </div>
+                <div class="team" id="team2">
+                    <h3>Team 2</h3>
+                    <hr>
+                    <ul id="team2List">
+                        <li>Player 3</li>
+                        <li>Player 4</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="generateTeam();" class="btn">Generate again</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL -->
+    <div class="modal" id="modalHistory">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal('modalHistory')">&times;</span>
+                <h2>Team generation | History</h2>
+            </div>
+            <div class="modal-body team-list" id="teamListHistory">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/aa0e32bf0a.js" crossorigin="anonymous"></script>
+    <script src="../assets/script.js"></script>
+</body>
+</html>

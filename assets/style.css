@@ -1,0 +1,297 @@
+/*
+*   Global CSS styles
+*
+*   Project: asset.blms.fr
+*   Author: Erostate
+*   Version: 1.0
+*   Date: 2024-02-15
+*
+*   License: BLMS
+*   License URI: https://blms.fr/license
+*/
+
+/* IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* VARIABLES */
+:root {
+    /* header */
+    --header-background: #002338;
+    --header-height: 50px;
+
+    /* main */
+    --main-background: #001626;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    color: white;
+    background-color: var(--main-background);
+    font-family: 'Nunito', sans-serif;
+    overflow-y: auto;
+}
+
+header {
+    background-color: var(--header-background);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-self: center;
+    z-index: 2;
+}
+
+main {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.container {
+    background: #00233B;
+    width: 80%;
+    border-radius: 0.4rem;
+    padding: 20px;
+}
+@media screen and (min-width: 900px) {
+    .container {
+        width: 700px;
+    }
+}
+.container .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container .header span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.container hr {
+    margin: 30px 0;
+    border: solid 2px #013255;
+}
+.container .content span.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container .content span.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container .content .gap-5 {
+    gap: 5px;
+}
+.container .content input {
+    margin-left: 20px;
+}
+
+.container .content #projectName {
+    text-align: right;
+}
+.container .content #author {
+    text-align: center;
+}
+.container .content #desc {
+    resize: none;
+}
+
+.container .generate {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.container .btn {
+    font-size: 25px;
+}
+
+input,
+textarea,
+select {
+    background: #00243e;
+    color: white;
+    border: solid 3px #001626;
+    outline: none;
+    border-radius: 0.3rem;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    transition: all 0.15s ease-in-out;
+}
+input::placeholder,
+textarea::placeholder {
+    color: rgb(197, 255, 250);
+}
+input:focus,
+textarea:focus {
+    background: #001524;
+    border-bottom: solid 3px rgb(197, 255, 250);
+    transition: all 0.15s ease-in-out;
+}
+input:disabled,
+textarea:disabled {
+    background: #001524;
+    border-bottom: solid 3px rgb(49, 141, 95);
+    border-left: solid 3px rgb(49, 141, 95);
+    transition: all 0.15s ease-in-out;
+    cursor: not-allowed;
+}
+button {
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+    outline: none;
+    border: solid 1px #013255;
+    border-radius: 0.3rem;
+    padding: 5px 10px;
+    background: #00243e;
+    color: white;
+    transition: all 0.25s ease-in-out;
+}
+button:hover {
+    background: #001524;
+    transition: all 0.25s ease-in-out;
+}
+.big-btn {
+    font-size: 15px;
+}
+.btn-danger {
+    border: solid 1px #f44336;
+    color: #f44336;
+}
+.btn-checkbox {
+    font-size: 15px;
+    border: solid 3px #001626;
+}
+.btn-checkbox.active {
+    font-size: 15px;
+    border: solid 3px #0f8641;
+}
+
+section.score {
+    background: #00233B;
+    width: 80%;
+    border-radius: 0.4rem;
+    padding: 20px;
+}
+@media screen and (min-width: 900px) {
+    section.score {
+        width: 700px;
+    }
+}
+section.score .title-score {
+    margin-bottom: 10px;
+}
+section.score .row {
+    width: calc(100% - 20px);
+    margin-top: 3px;
+    padding: 10px;
+    border: solid 2px #013255;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: all 0.15s ease-in-out;
+}
+
+.modal .team-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+}
+.modal .team-list .team {
+    border: solid 2px #013255;
+    border-radius: 0.3rem;
+    padding: 10px 30px;
+}
+.modal .team-list .team hr {
+    margin: 10px -25px;
+    border: solid 1px #013255;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    position: relative;
+    background-color: var(--main-background);
+    margin: auto;
+    padding: 0;
+    border: 1px solid #013255;
+    border-radius: 0.3rem;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}  
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #f44336;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header {
+    padding: 6px 16px;
+    background-color: var(--header-background);
+    color: white;
+}
+.modal-body {
+    padding: 12px 16px;
+}
+.modal-footer {
+    padding: 6px 16px;
+    background-color: var(--header-background);
+    color: white;
+}
+.modal-error {
+    padding: 12px 16px;
+}
